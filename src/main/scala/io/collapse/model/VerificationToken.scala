@@ -66,8 +66,7 @@ object VerificationToken extends TokenObject with SES {
     val body:Body = new Body()
 
     val verificationUrl =
-      // "https://collapse.io/verify" +
-      "https://collapse.io/verify" +
+      "https://g.collapse.io/verify" +
         "?email=" + URLEncoder.encode(emailAddress) +
         "&token=" + URLEncoder.encode(tokenValue)
 
@@ -80,5 +79,4 @@ object VerificationToken extends TokenObject with SES {
     body.withText(new Content(textView.render))
     body.withHtml(new Content(htmlView.render))
   }
-   
 }

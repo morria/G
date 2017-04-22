@@ -2,30 +2,13 @@
 
 .heading{
   margin-bottom: @spacing;
+
   @media @sm{
     margin-bottom: @half-spacing;
   }
+
   h1{
-    float: left;
-    margin: 0;
-    padding: 0;
     line-height: @normal-height;
-  }
-  a{
-    float: right;
-    font-weight: @normal-weight;
-    font-size: @small-size;
-    line-height: @normal-height;
-    white-space: nowrap;
-    display: block;
-    margin-top: 12px;
-    @media @sm{
-      margin-top: 7px;
-    }
-    @media @xs{
-      clear: both;
-      float: none;
-    }
   }
 }
 

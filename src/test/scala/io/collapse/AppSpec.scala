@@ -6,5 +6,5 @@ import com.twitter.finatra.test._
 import io.collapse._
 
 class AppSpec extends SpecHelper {
-  val app = new App.CollapseController
+  val app = new G.CollapseController
 }

@@ -3,21 +3,26 @@
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <groupId>io.collapse</groupId>
-  <artifactId>collapse</artifactId>
+  <artifactId>G</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   <name>${project.artifactId}</name>
-  <description>collapse.io</description>
-  <inceptionYear>2015</inceptionYear>
+  <description>URL bookmark tool</description>
+  <inceptionYear>2017</inceptionYear>
   <url>https://collapse.io</url>
   <packaging>jar</packaging>
-
+  <licenses>
+    <license>
+      <name>MIT</name>
+      <url>https://opensource.org/licenses/MIT</url>
+      <distribution>repo</distribution>
+    </license>
+  </licenses>
   <properties>
     <maven.compiler.source>1.6</maven.compiler.source>
     <maven.compiler.target>1.6</maven.compiler.target>
     <encoding>UTF-8</encoding>
     <scala.version>2.9.2</scala.version>
   </properties>
-
   <repositories>
     <repository>
       <id>twttr</id>
@@ -25,7 +30,6 @@
       <url>http://maven.twttr.com</url>
     </repository>
   </repositories>
-
   <dependencies>
     <dependency>
       <groupId>org.scala-lang</groupId>
@@ -99,30 +103,16 @@
           <launchers>
             <launcher>
               <id>main</id>
-              <mainClass>io.collapse.App</mainClass>
+              <mainClass>io.collapse.G</mainClass>
               <jvmArgs>
                 <jvmArg>-Dname=collapse</jvmArg>
                 <jvmArg>-Dlog_path=logs/collapse.log</jvmArg>
                 <jvmArg>-Dlog_node=collapse</jvmArg>
                 <jvmArg>-Dstats_port=9990</jvmArg>
                 <jvmArg>-Dlocal_docroot=src/main/resources</jvmArg>
-                <jvmArg>-Dport=7070</jvmArg>
+                <jvmArg>-Dport=8080</jvmArg>
                 <jvmArg>-Dpid_enabled=true</jvmArg>
                 <jvmArg>-Dpid_path=logs/app.pid</jvmArg>
-              </jvmArgs>
-            </launcher>
-            <launcher>
-              <id>admin</id>
-              <mainClass>io.collapse.admin.App</mainClass>
-              <jvmArgs>
-                <jvmArg>-Dname=admin</jvmArg>
-                <jvmArg>-Dlog_path=logs/admin.log</jvmArg>
-                <jvmArg>-Dlog_node=admin</jvmArg>
-                <jvmArg>-Dstats_port=9991</jvmArg>
-                <jvmArg>-Dlocal_docroot=src/main/admin_resources</jvmArg>
-                <jvmArg>-Dport=7071</jvmArg>
-                <jvmArg>-Dpid_enabled=true</jvmArg>
-                <jvmArg>-Dpid_path=logs/admin.pid</jvmArg>
               </jvmArgs>
             </launcher>
           </launchers>

@@ -2,11 +2,19 @@
   <div class="row">
     <div class="col-lg-12 col-md-12 col-sm-12">
       <div class="clearfix">
-        Create a new link
         <form id="form-create-link">
           <input type="hidden" name="name" value="{{name}}"/>
-          <input type="text" name="url" />
-          <input type="submit" value="Create" />
+          <div class="form-group">
+            <label for="url">Where should <i>{{name}}</i> point?</label>
+            <input type="text"
+              class="form-control"
+              id="url"
+              name="url"
+              placeholder="http://inbox.google.com"
+              pattern=".{3,}"
+              >
+          </div>
+          <input class="btn btn-default" type="submit" value="Create">
         </form>
       </div>
     </div>

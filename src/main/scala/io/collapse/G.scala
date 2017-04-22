@@ -14,7 +14,7 @@ import io.collapse.view.email._
 import io.collapse.view.error._
 import org.jboss.netty.handler.codec.http.Cookie
 
-object App {
+object G {
 
   class CollapseController extends Controller {
 
@@ -49,22 +49,11 @@ object App {
         case Some(emailAddress:String) =>
           val name:String = request.routeParams.getOrElse("name", "")
           val url:String = request.params.getOrElse("url", "")
-          /*
-          println("List of map items:")
-          println(request.multiParams.toList);
-          val url:String = request.multiParams.get("url") match {
-            case Some(item:MultipartItem) => new String(item.data)
-            case None => "none"
-          }
-          */
-
-          println("got " + name + " => " + url);
-
           Link(emailAddress, name, url).store.transform {
             case Return(true) =>
-              redirectTemporary(url);
+              renderJson(Map("success" -> true))
             case Return(false) =>
-							renderView(CreateLinkView(emailAddress, name));
+              renderJson(Map("success" -> false))
             case Throw(exception:Exception) =>
               Future.exception(exception)
           }
@@ -177,7 +166,7 @@ object App {
   val app = new CollapseController
 
   def main(args: Array[String]) = {
-    AppFinatraServer.register(app)
-    AppFinatraServer.start()
+    GFinatraServer.register(app)
+    GFinatraServer.start()
   }
 }

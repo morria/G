@@ -10,8 +10,8 @@ import com.twitter.logging.Policy
 import com.twitter.logging.config.FileHandlerConfig
 import com.twitter.logging.config.LoggerConfig
 
-object AppFinatraServer {
-  var server:AppFinatraServer = new AppFinatraServer
+object GFinatraServer {
+  var server:GFinatraServer = new GFinatraServer
 
   def register(app:Controller) {
     server.register(app)
@@ -26,10 +26,10 @@ object AppFinatraServer {
   }
 }
 
-class AppFinatraServer extends FinatraServer {
+class GFinatraServer extends FinatraServer {
   override def initLogger() {
     val config = new LoggerConfig {
-      node = "go.local.collapse.io"
+      node = "g.collapse.io"
       level = Logger.ALL
       handlers = new FileHandlerConfig {
         filename = "logs/collapse.log"

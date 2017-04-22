@@ -3,6 +3,7 @@ define(['jquery', 'underscore', 'Analytics'],
 
     var $form = $('#form-request-invite');
     var $email = $form.find('input[name=email]');
+    var $button = $form.find('#submit');
 
     var Controller_RequestInvite = function() {
 
@@ -92,7 +93,7 @@ define(['jquery', 'underscore', 'Analytics'],
 
       onRequestInviteSuccess: function(email, data) {
         Analytics.actionWithLabel('request_invite', 'success', email);
-        // ...
+        $button.text("Check Your Email");
       },
 
       onRequestInviteFail: function(email, data) {

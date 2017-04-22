@@ -69,6 +69,7 @@ define(['jquery', 'underscore', 'Analytics'],
 
       onSuccess: function(name, url, data) {
         Analytics.actionWithLabel('create_link', 'success', email);
+        document.location = url;
       },
 
       onFail: function(email, data) {
