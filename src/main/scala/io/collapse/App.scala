@@ -48,11 +48,15 @@ object App {
 			authenticatedAs(request) match {
         case Some(emailAddress:String) =>
           val name:String = request.routeParams.getOrElse("name", "")
-          println(request.multiParams);
+          val url:String = request.params.getOrElse("url", "")
+          /*
+          println("List of map items:")
+          println(request.multiParams.toList);
           val url:String = request.multiParams.get("url") match {
             case Some(item:MultipartItem) => new String(item.data)
             case None => "none"
           }
+          */
 
           println("got " + name + " => " + url);
 

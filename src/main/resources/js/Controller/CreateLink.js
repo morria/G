@@ -30,8 +30,6 @@ define(['jquery', 'underscore', 'Analytics'],
           .addClass('loading')
           .attr('disabled', 'disabled');
 
-        console.log("Have: ", name, url);
-
         $.ajax('/' + name, {
           method: "POST",
           data: { url: url },

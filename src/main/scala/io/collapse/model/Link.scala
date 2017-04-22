@@ -19,13 +19,14 @@ case class Link(
 
   lazy val key = emailAddress + "|" + name;
 
-  def store : Future[Boolean] =
+  def store : Future[Boolean] = {
     put(Link.TableName,
       Map(
         Link.FieldKey -> key,
         Link.FieldUrl -> url
       )
     )
+}
 
   def delete : Future[Boolean] = delete(Link.TableName, key)
 }
@@ -39,8 +40,8 @@ object Link extends DynamoDb {
 	val Fields = FieldKey :: FieldUrl :: Nil
 
   def apply(key:String, url:String) : Link  = {
-    val Key = """^(.+)|(.+)$""".r;
-    val Key(emailAddress:String, name:String) = url;
+    val Key = """^(.+)\|(.+)$""".r;
+    val Key(emailAddress:String, name:String) = key;
 		new Link(emailAddress, name, url);
   }
 
@@ -60,7 +61,7 @@ object Link extends DynamoDb {
 	def fromMap(map:Map[String,String]):Link =
     Link(
       map(FieldKey),
-      map.getOrElse(FieldUrl, "https://collapse.io")
+      map.getOrElse(FieldUrl, "https://g.collapse.io")
     )
 
 }
