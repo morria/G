@@ -1,0 +1,52 @@
+/*footer*/
+.footer {
+  padding: @half-spacing 0 (@half-spacing + 2);
+  font-size: @small-size;
+
+  nav{
+    min-height: inherit;
+    margin: 0;
+    a{
+      float: left;
+      margin-right: 15px;
+      text-decoration: none;
+      font-weight: @bold-weight;
+
+      &.with-icon{
+        position:relative;
+        float:left;
+        display: block;
+        width: 20px;
+
+        span{
+          text-indent: -1000px;
+          overflow: hidden;
+          display:block;
+        }
+
+        &:before{
+          margin-top: 1px;
+          font-family: @icon-font;
+          display: block;
+          position: absolute;
+          line-height: 16px;
+          left: 0;
+          top: 3px;
+          content: "\f099";
+          font-size: 18px;
+        }
+      }
+    }
+  }
+  p{
+    font-size: @small-size;
+    margin: 0;
+  }
+}
+
+.signed-out .footer{
+  padding: @spacing 0 (@spacing + 3);
+  @media @sm{
+    padding: @half-spacing 0 (@half-spacing + 2);
+  }
+}

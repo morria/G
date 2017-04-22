@@ -1,0 +1,10 @@
+{{> tmpl/wrapper/upper.mustache}}
+  <link rel="stylesheet/less" type="text/css" href="/css/pages/error.less" />
+  <script src="/js/vendor/less-1.6.0.min.js" type="text/javascript"></script>
+  <div class="content-wrap">
+    <div class="container">
+      {{> tmpl/pages/error/modules/404.mustache}}
+    </div>
+  </div>
+  <script data-main="/js/pages/error" src="/js/vendor/require-2.1.9.min.js"></script>
+{{> tmpl/wrapper/lower.mustache}}

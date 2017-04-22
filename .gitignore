@@ -1,0 +1,7 @@
+nohup.out
+target
+logs/
+logs/*.log
+logs/*.pid
+*.swp
+*.DS_Store

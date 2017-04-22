@@ -1,0 +1,29 @@
+.blink {
+  -webkit-animation: blink 2s linear infinite;
+  -moz-animation: blink 2s linear infinite;
+  animation: blink 2s linear infinite;
+  padding-left: 24px;
+  position: relative;
+  font-size: @normal-size;
+  &:before{
+    content: '';
+    position: absolute;
+    margin: auto;
+    left: 0;
+    top: 2px;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    border-right: solid 2px @site-bg;
+    border-left: solid 2px @site-bg;
+    border-top: solid 2px @text-fg;
+    border-bottom: solid 2px @site-bg;
+    background: @site-bg;
+    animation: spin 2s linear infinite;
+    -webkit-animation: spin 2s linear infinite;
+    -moz-animation: spin 2s linear infinite;
+    @media @sm{
+      top: 0;
+    }
+  }
+}

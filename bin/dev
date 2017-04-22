@@ -1,0 +1,10 @@
+#!/bin/sh
+if [ -z $AWS_ACCESS_KEY_ID ]; then
+    echo "please define AWS_ACCESS_KEY_ID"
+    exit 1;
+fi
+if [ -z $AWS_SECRET_KEY ]; then
+    echo "please define AWS_SECRET_KEY"
+    exit 1;
+fi
+mvn -T4.0C scala:run

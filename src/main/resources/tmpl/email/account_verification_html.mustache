@@ -1,0 +1,45 @@
+{{> tmpl/email/modules/header.mustache }}
+<tr>
+  <td height="40"></td>
+</tr>
+<tr>
+  <td>
+    <h1 style="font-family: Helvetica, Arial, sans-serif; font-size: 24px; color: #333333; margin: 0;">You're almost done!</h1>
+  </td>
+</tr>
+<tr>
+  <td height="20"></td>
+</tr>
+<tr>
+  <td style="font-family: Helvetica, Arial, sans-serif; font-size: 14px; color: #333333;">
+    There's just one quick thing we need before we're set. Please verify your email by clicking the button below.
+  </td>
+</tr>
+<tr>
+  <td height="10"></td>
+</tr>
+<tr>
+  <td>
+    <table cellspacing="0" cellpadding="0"> 
+      <tr> 
+        <td align="center" width="200" height="40" bgcolor="#333333" style="-webkit-border-radius: 3px; -moz-border-radius: 3px; border-radius: 3px; color: #DCF4FF; display: block;">
+          <a href="{{ verificationUrl }}" style="font-family: Helvetica, Arial, sans-serif; color: #DCF4FF; font-size:14px; font-weight: bold; font-family: Helvetica, Arial, sans-serif; text-decoration: none; line-height:40px; width:100%; display:inline-block">
+            Verify Your Email
+          </a>
+        </td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr>
+  <td height="20"></td>
+</tr>
+<tr>
+  <td colspan="2" style="font-family: Helvetica, Arial, sans-serif; font-size: 12px; color: #333333;">
+    If you did not sign up for an account on <a href="https://go.collapse.io" style="color: #333333; text-decoration: none;">go.collapse.io</a>, you may ignore this message.
+  </td>
+</tr>
+<tr>
+  <td height="40"></td>
+</tr>
+{{> tmpl/email/modules/footer.mustache }}

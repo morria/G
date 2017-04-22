@@ -1,0 +1,248 @@
+/*icon fonts*/
+@import (css) "//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css";
+@import "modules/variables";
+@import "modules/common";
+@import "modules/header";
+@import "modules/footer";
+/* @import "modules/retina"; */
+
+/*animation*/
+@keyframes spin{
+  0% { transform: rotate(0deg); }
+  50% { transform: rotate(180deg); }
+  100% { transform: rotate(360deg); }
+}
+@keyframes blink{
+    0% { opacity: 1; }
+    50% { opacity: .3; }
+    100% { opacity: 1; }
+}
+@-webkit-keyframes blink{
+    0% { opacity: 1; }
+    50% { opacity: .3; }
+    100% { opacity: 1; }
+}
+
+html {
+  display: inherit;
+}
+
+
+/*verification*/
+.sent-msg{
+  display: none;
+}
+  .sent .sent-msg{
+    display: block;
+  }
+
+/*onboarding*/
+#form-onboard{
+  text-align: left;
+
+  label{
+    font-weight: @normal-weight;
+    display: block;
+    font-size: (@normal-size - 2);
+    line-height: @normal-height;
+    margin-bottom: 4px;
+  }
+  .wrapper-twitter{
+    position: relative;
+    &:before{
+      content: "@";
+      font-size: @normal-size;
+      line-height: @normal-height;
+      display: block;
+      top: 50%;
+      left: 11px;
+      margin-top: -11px;
+      position: absolute;
+    }
+    .form-control{
+      padding-left: 25px;
+    }
+  }
+}
+
+/*connect*/
+#clients {
+  margin-bottom: 10px;
+}
+    #clients a {
+     color: @text-fg;
+    }
+    #clients .selected {
+      font-weight: bold;
+    }
+#instructions > ol {
+  padding: 0;
+  display: none;
+  list-style-position: inside;
+}
+#instructions > .show {
+  display: block;
+}
+  #instructions li {
+    display: list-item;
+  }
+
+/*channel card*/
+.channel-card {
+  text-align: left;
+  background-color: @white;
+  border-radius: @radius;
+  margin-bottom: 30px;
+  height: 110px;
+  border: 2px solid @white;
+  padding: 11px 16px 16px;
+
+  @media @sm{
+    margin-bottom: 10px;
+  }
+
+  h5 {
+    margin-top: 0;
+    font-size: @normal-size;
+    line-height: @tight-height;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  p{
+    margin: 0;
+  }
+
+  .topic {
+    margin-top: 5px;
+    font-size: @normal-size;
+    line-height: @normal-height;
+    padding: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color: #777;
+    line-height: (@normal-size + 4px);
+    height: (@normal-size + 4px);
+  }
+
+  .topic:empty {
+  }
+
+  .stats {
+    float: left;
+    font-size: @smallcap-size;
+    line-height: @normal-height;
+    padding: 17px 0 0 4px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: inline-block;
+    @media @sm{
+      padding-top: 16px;
+    }
+  }
+
+  ul.companies {
+    float: left;
+    padding: 15px 0 0;
+    display: inline-block;
+
+    li{
+      float: left;
+      margin-right: 3px;
+
+      img{
+        float: left;
+        border-radius: @radius;
+        width: 20px;
+        height: 20px;
+        @media @sm{
+          width: 18px;
+          height: 18px;
+        }
+      }
+    }
+  }
+
+  ul.companies:empty {
+    display: none;
+  }
+
+  &.clickable {
+    cursor: pointer;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+
+    &:hover{
+      -webkit-box-shadow: 0 0 2px rgba(0,0,0,.4);
+      -moz-box-shadow: 0 0 2px rgba(0,0,0,.4);
+      box-shadow: 0 0 2px rgba(0,0,0,.4);
+      @media @xs{
+        -webkit-box-shadow: none;
+        -moz-box-shadow: none;
+        box-shadow: none;
+      }
+    }
+
+    &.selected{
+      border-color: @selected-fg;
+    }
+    &.selected:before{
+      color: @selected-fg;
+      top: 2px;
+      right: 20px;
+      padding: 8px;
+      font-family: @icon-font;
+      content: "\f00c";
+      display: block;
+      position: absolute;
+      font-size: 16px;
+      line-height: 16px;
+      width: 30px;
+      height: 30px;
+    }
+
+    &.loading.selected:before,
+    &.loading:before{
+      content: '';
+      position: absolute;
+      top: 9px;
+      right: 27px;
+      width: 18px;
+      height: 18px;
+      padding: 0;
+      border-radius: 50%;
+      border-right: solid 3px @white;
+      border-left: solid 3px @white;
+      border-top: solid 3px @text-fg;
+      background: @white;
+      box-shadow: 0 0 0 5px @white;
+      animation: spin .5s linear infinite;
+      -webkit-animation: spin .5s linear infinite;
+      -moz-animation: spin .5s linear infinite;
+    }
+
+  }
+}
+
+.channel-name {
+  font-weight: 700;
+}
+
+.irc-clients {
+  img {
+    width: 30px;
+    height: 30px;
+    opacity: .7;
+  }
+  a:hover img{
+    opacity: 1;
+  }
+}
+

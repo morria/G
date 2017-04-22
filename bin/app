@@ -1,0 +1,19 @@
+#!/bin/sh
+if [ -z $AWS_ACCESS_KEY_ID ]; then
+    echo "please define AWS_ACCESS_KEY_ID"
+    exit 1;
+fi
+if [ -z $AWS_SECRET_KEY ]; then
+    echo "please define AWS_SECRET_KEY"
+    exit 1;
+fi
+java \
+  -Dname=collapse \
+  -Dlog_node=collapse \
+  -Dlog_path=/var/log/collapse.io/error.log \
+  -Dlocal_docroot=src/main/resources \
+  -Dport=7075 \
+  -Dstats_port=9095 \
+  -Dpid_enabled=true \
+  -Dpid_path=collapse.pid \
+  -jar target/collapse.jar

@@ -1,0 +1,19 @@
+@import "../style.less";
+
+img{
+  width: 100%;
+  max-width: 720px;
+  height: auto;
+  margin-bottom: @double-spacing;
+
+  @media @sm{
+    margin-bottom: @spacing;
+  }
+}
+
+.h1{
+  font-size: (@headline-size * 2);
+  @media @sm{
+    font-size: @headline-size;
+  }
+}

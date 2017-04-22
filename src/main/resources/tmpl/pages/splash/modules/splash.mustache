@@ -1,0 +1,23 @@
+<div class="row">
+  {{> tmpl/pages/splash/modules/pitch}}
+  <div class="col col-lg-5 col-md-5 col-sm-5">
+    <div class="inner border-top">
+      <h1>Get Places Slightly Faster</h1>
+      <form id="form-request-invite" role="form">
+        <div class="form-group clearfix">
+          <input type="email"
+            name="email"
+            required="required"
+            class="form-control"
+            id="login-email"
+            placeholder="Email Address" />
+            <!--add .error to .form-group to show-->
+            <span class="error-msg">Please enter a valid email address.</span>
+        </div>
+        <button type="submit"
+          id="submit"
+          class="btn btn-full">Join</button>
+      </form>
+    </div>
+  </div>
+</div>
