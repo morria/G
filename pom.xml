@@ -110,7 +110,7 @@
                 <jvmArg>-Dlog_node=collapse</jvmArg>
                 <jvmArg>-Dstats_port=9990</jvmArg>
                 <jvmArg>-Dlocal_docroot=src/main/resources</jvmArg>
-                <jvmArg>-Dport=8080</jvmArg>
+                <jvmArg>-Dport=7070</jvmArg>
                 <jvmArg>-Dpid_enabled=true</jvmArg>
                 <jvmArg>-Dpid_path=logs/app.pid</jvmArg>
               </jvmArgs>

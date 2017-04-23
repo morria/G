@@ -61,7 +61,7 @@ object Link extends DynamoDb {
 	def fromMap(map:Map[String,String]):Link =
     Link(
       map(FieldKey),
-      map.getOrElse(FieldUrl, "https://g.collapse.io")
+      map.getOrElse(FieldUrl, "https://collapse.io")
     )
 
 }

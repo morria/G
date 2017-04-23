@@ -29,7 +29,7 @@ object GFinatraServer {
 class GFinatraServer extends FinatraServer {
   override def initLogger() {
     val config = new LoggerConfig {
-      node = "g.collapse.io"
+      node = "collapse.io"
       level = Logger.ALL
       handlers = new FileHandlerConfig {
         filename = "logs/collapse.log"
