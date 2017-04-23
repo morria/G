@@ -151,7 +151,7 @@
               </descriptorRefs>
               <archive>
                 <manifest>
-                  <mainClass>io.collapse.App</mainClass>
+                  <mainClass>io.collapse.G</mainClass>
                 </manifest>
               </archive>
             </configuration>

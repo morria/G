@@ -90,7 +90,7 @@ object G {
                       .plain("")
                       .status(302)
                       .header("Set-Cookie", "token="+emailAddress+":"+authenticationTokenValue)
-                      .header("Location", "http://localhost:7070/")
+                      .header("Location", "/")
                       .toFuture
                   case Throw(exception:Exception) =>
                     Future.exception(exception)
