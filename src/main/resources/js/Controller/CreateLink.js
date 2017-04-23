@@ -7,6 +7,7 @@ define(['jquery', 'underscore', 'Analytics'],
 
     var Controller_CreateLink= function() {
       $form.submit(_.bind(this.onSubmit, this));
+      $url.focus();
     }
 
     Controller_CreateLink.prototype = {

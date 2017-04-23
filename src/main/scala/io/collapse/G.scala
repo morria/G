@@ -21,9 +21,9 @@ object G {
     get("/") { request =>
 			authenticatedAs(request) match {
         case Some(emailAddress:String) =>
-					renderView(Main(emailAddress))
+					renderViewFuture(Main(emailAddress))
         case None =>
-          renderView(Splash())
+          renderViewFuture(Splash())
       }
     }
 
@@ -35,7 +35,24 @@ object G {
 						case Return(Some(link:Link)) =>
 							redirectTemporary(link.url)
 						case Return(None) =>
-							renderView(CreateLinkView(emailAddress, name));
+							renderViewFuture(CreateLinkView(emailAddress, name));
+						case Throw(exception:Exception) =>
+              Future.exception(exception)
+					}
+				case None =>
+					redirectTemporary("/")
+			}
+    }
+
+    get("/search/:name") { request =>
+			authenticatedAs(request) match {
+        case Some(emailAddress:String) =>
+          val name:String = request.routeParams.getOrElse("name", "")
+          Link.find(emailAddress, name).transform {
+						case Return(Some(link:Link)) =>
+							redirectTemporary(link.url)
+						case Return(None) =>
+							redirectTemporary("https://www.google.com/search?q=" + name)
 						case Throw(exception:Exception) =>
               Future.exception(exception)
 					}
@@ -95,13 +112,13 @@ object G {
                   case Throw(exception:Exception) =>
                     Future.exception(exception)
                   case _ =>
-                    renderView(new VerificationSentFail())
+                    renderViewFuture(new VerificationSentFail())
                 }
               case Throw(exception:Exception) =>
                 Future.exception(exception)
               }
           case Return(false) =>
-            renderView(new VerificationSentFail())
+            renderViewFuture(new VerificationSentFail())
           case Throw(exception:Exception) =>
             Future.exception(exception)
         }
@@ -110,8 +127,11 @@ object G {
     private def redirectTemporary(location:String) : Future[Response] =
       render.plain("").status(302).header("Location", location).toFuture
 
-    private def renderView(view:View) : Future[Response] =
-      render.view(view).toFuture
+    private def renderView(view:View) : Response =
+      render.view(view)
+
+    private def renderViewFuture(view:View) : Future[Response] =
+      renderView(view).toFuture
 
     private def renderJson(map:Map[String,Any]) : Future[Response] =
       render.json(map).toFuture
